@@ -1,3 +1,0 @@
-module VPNPlugin {
-    header "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/include/VPNPlugin-Swift.h"
-}
