@@ -13,3 +13,11 @@ public struct VPNPlugin: StatusBarPlugin {
         widgets = [VPNWidget()]
     }
 }
+
+// MARK: - Plugin Factory
+
+@_cdecl("createStatusBarPlugin")
+public func createStatusBarPlugin() -> UnsafeMutableRawPointer {
+    let box = PluginBox { VPNPlugin() }
+    return Unmanaged.passRetained(box).toOpaque()
+}
