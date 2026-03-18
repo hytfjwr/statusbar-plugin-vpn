@@ -1,0 +1,25 @@
+{
+  "": {
+    "dependencies": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNPlugin.d",
+    "object": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNPlugin.o",
+    "swift-dependencies": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/master.swiftdeps"
+  },
+  "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/Sources/VPNPlugin/VPNPlugin.swift": {
+    "object": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNPlugin.swift.o",
+    "swiftmodule": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNPlugin~partial.swiftmodule",
+    "swift-dependencies": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNPlugin.swiftdeps",
+    "diagnostics": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNPlugin.dia"
+  },
+  "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/Sources/VPNPlugin/VPNService.swift": {
+    "object": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNService.swift.o",
+    "swiftmodule": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNService~partial.swiftmodule",
+    "swift-dependencies": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNService.swiftdeps",
+    "diagnostics": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNService.dia"
+  },
+  "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/Sources/VPNPlugin/VPNWidget.swift": {
+    "object": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNWidget.swift.o",
+    "swiftmodule": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNWidget~partial.swiftmodule",
+    "swift-dependencies": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNWidget.swiftdeps",
+    "diagnostics": "/Users/hayato.fujiwara/Dev/poc/statusbar-plugin-vpn/.build/arm64-apple-macosx/release/VPNPlugin.build/VPNWidget.dia"
+  }
+}
