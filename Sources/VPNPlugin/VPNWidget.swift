@@ -1,3 +1,4 @@
+import AppKit
 import Combine
 import StatusBarKit
 import SwiftUI
@@ -16,6 +17,11 @@ public final class VPNWidget: StatusBarWidget {
     private let service = VPNService()
     private var vpnConnections: [VPNService.VPNConnection] = []
     private var popupPanel: PopupPanel?
+
+    // System Settings is the only way to connect/disconnect on macOS 26:
+    // NE-native configurations are invisible to `scutil --nc start/stop`.
+    private static let vpnSettingsURL =
+        URL(string: "x-apple.systempreferences:com.apple.NetworkExtensionSettingsUI.NESettingsUIExtension")!
 
     private var anyConnected: Bool {
         vpnConnections.contains { $0.isConnected }
@@ -67,16 +73,8 @@ public final class VPNWidget: StatusBarWidget {
     }
 
     private func makePopupContent() -> VPNPopupContent {
-        VPNPopupContent(connections: vpnConnections) { [weak self] name, connected in
-            Task {
-                if connected {
-                    _ = try? await ShellCommand.run("scutil", arguments: ["--nc", "stop", name])
-                } else {
-                    _ = try? await ShellCommand.run("scutil", arguments: ["--nc", "start", name])
-                }
-                try? await Task.sleep(for: .seconds(1))
-                self?.update()
-            }
+        VPNPopupContent(connections: vpnConnections) {
+            NSWorkspace.shared.open(Self.vpnSettingsURL)
         }
     }
 
@@ -97,7 +95,7 @@ public final class VPNWidget: StatusBarWidget {
 
 struct VPNPopupContent: View {
     let connections: [VPNService.VPNConnection]
-    let onToggle: (String, Bool) -> Void
+    let onOpenSettings: () -> Void
 
     var body: some View {
         VStack(spacing: 0) {
@@ -107,8 +105,8 @@ struct VPNPopupContent: View {
                 PopupEmptyState(icon: "lock.shield", message: "No VPN configured")
             } else {
                 VStack(spacing: 2) {
-                    ForEach(connections, id: \.name) { vpn in
-                        Button(action: { onToggle(vpn.name, vpn.isConnected) }) {
+                    ForEach(connections, id: \.id) { vpn in
+                        Button(action: onOpenSettings) {
                             HStack(spacing: 10) {
                                 Image(systemName: vpn.isConnected ? "lock.shield.fill" : "lock.shield")
                                     .font(.system(size: 13, weight: .medium))
